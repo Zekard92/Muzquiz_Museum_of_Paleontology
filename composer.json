@@ -1,0 +1,18 @@
+{
+    "name": "zekard/paleontologiamuzquiz.com",
+    "description": "The official website for Muzquiz's paleontology museum.",
+    "type": "project",
+    "license": "GNU GPLv3",
+    "autoload": {
+        "psr-4": {
+            "Zekard\\PaleontologiamuzquizCom\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Miguel Guajardo",
+            "email": "mguajardoal@gmail.com"
+        }
+    ],
+    "require": {}
+}
