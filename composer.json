@@ -5,7 +5,7 @@
     "license": "GNU GPLv3",
     "autoload": {
         "psr-4": {
-            "Zekard\\PaleontologiamuzquizCom\\": "app/"
+            "App\\": "app/"
         }
     },
     "authors": [
