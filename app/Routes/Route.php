@@ -42,12 +42,13 @@ class Route
      */
     private function processHttpHost(String $httpHost):void
     {
-        $regex = "/((?'subdomain'\w+)\.)?(?'domain'\w+)(\.(com\.mx|com|mx))?/";
+        $regex = "/((?'subdomain'\w+)\.)?(ligafenix|localhost)\.?(com\.mx|com|mx)?/";
         $matches = [];
         Logger::LogDebug("Matched: " . preg_match($regex, $httpHost, $matches));
         Logger::LogDebug("Matches: " . print_r($matches, true));
-
+        
         $this->subdomain = $matches['subdomain'];
+        Logger::LogDebug("Subdomain: " . $this->subdomain);
     }
 
     /**
