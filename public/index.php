@@ -13,6 +13,11 @@
 require __DIR__ . '/../vendor/autoload.php';
 use App\Logger\Logger;
 
+foreach($_SERVER as $key => $value)
+{
+    Logger::LogDebug("$key => $value");
+}
+
 Logger::Log("Request received.");
 
 $app = new App\Application();
