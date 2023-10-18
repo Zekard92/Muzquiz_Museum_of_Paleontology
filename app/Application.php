@@ -2,6 +2,7 @@
 namespace App;
 
 use App\Logger\Logger;
+use App\Routes\Route;
 
 /**
  * The main application.
@@ -16,11 +17,13 @@ use App\Logger\Logger;
  */
 class Application
 {
+    protected $route;
+
     public function __construct()
     {
         Logger::Log("Initializing Application");
 
-        //TODO: Do things.
+        $route = new Route();
 
         Logger::Log("Application Initializer Concluded");
     }
