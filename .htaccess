@@ -1,9 +1,12 @@
 php_value date.timezone 'America/Monterrey'
 
 RewriteEngine On
+RewriteCond %{HTTPS} off 
+RewriteRule ^(.*)$ https:
+
 RewriteBase /public/
 
 RewriteCond %{THE_REQUEST} /public/([^\s?]*) [NC]
 RewriteRule ^ %1 [L,NE,R=302]
 
-RewriteRule ^((?!public/).*)$ public/$1 [L,NC]
+RewriteRule ^((?!public/).*)$ $1 [L,NC]
