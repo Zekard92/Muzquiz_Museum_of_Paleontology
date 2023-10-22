@@ -4,7 +4,6 @@ namespace App\Routes;
 use App\Controllers\Controller;
 use App\Controllers\HomeController;
 use App\Logger\Logger;
-use BadMethodCallException;
 use Exception;
 
 /**
@@ -13,7 +12,7 @@ use Exception;
  * @author Miguel A. Guajardo <mguajardoal@gmail.com>
  * @copyright 2023 Zekard Technologies
  * @license GNU GPLv3
- * @version 0.0.1
+ * @version 0.0.2
  * @since 17/Oct/2023 Class available since Release 0.0.2
  */
 abstract class Route
@@ -80,7 +79,7 @@ abstract class Route
         self::$path = explode('/', $matches['path']);
         self::$query = $matches['query'];
 
-        Logger::LogDebug("Path: => " . self::$path);
+        Logger::LogDebug("Path: => " . print_r(self::$path, true));
         Logger::LogDebug("Query: => " . self::$query);
     }
 
@@ -139,7 +138,7 @@ abstract class Route
      */
     private static function PerformRequest(Controller $controller)
     {
-        $view = self::$path[1];
+        $view = self::$path[1] ? self::$path[1] : 'home';
         Logger::LogDebug("Requesting View: $view");
         if (method_exists($controller, $view))
         {

@@ -13,7 +13,7 @@ use App\Routes\WebRoute;
  * @author Miguel A. Guajardo <mguajardoal@gmail.com>
  * @copyright 2023 Zekard Technologies.
  * @license GNU GPLv3
- * @version 0.0.2
+ * @version 0.0.3
  * @since 17/Oct/2023 Class available since Release 0.0.1
  */
 class Application
@@ -22,10 +22,14 @@ class Application
 
     public function __construct()
     {
-        Logger::Log("Initializing Application");
+        Logger::OpenFile();
+        Logger::Log('Request received.');
+        Logger::EndDivision();
 
-        $route = Route::Enroute();
+        Route::Enroute();
 
-        Logger::Log("Application Initializer Concluded");
+        Logger::Log("Request cycle concluded.");
+        Logger::EndDivision();
+        Logger::CloseFile();
     }
 }
