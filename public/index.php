@@ -13,10 +13,14 @@
 require __DIR__ . '/../vendor/autoload.php';
 use App\Logger\Logger;
 
-foreach($_SERVER as $key => $value)
-{
-    Logger::LogDebug("$key => $value");
-}
+/* */
+Logger::LogDebug("SCRIPT_URL => " . $_SERVER['SCRIPT_URL']);
+Logger::LogDebug("SCRIPT_URI => " . $_SERVER['SCRIPT_URI']);
+Logger::LogDebug("QUERY_STRING => " . $_SERVER['QUERY_STRING']);
+Logger::LogDebug("SERVER_NAME => " . $_SERVER['SERVER_NAME']);
+Logger::LogDebug("HTTP_HOST => " . $_SERVER['HTTP_HOST']);
+Logger::LogDebug("REQUEST_URI => " . $_SERVER['REQUEST_URI']);
+/* */
 
 Logger::Log("Request received.");
 
