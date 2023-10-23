@@ -38,7 +38,7 @@ class HomeController extends Controller
      * This function will return the home page (A.K.A. Main landing-page).
      * @author Miguel A. Guajardo <mguajardoal@gmail.com>
      */
-    public function DefaultView() : void
+    public function DefaultView($path = []) : void
     {
         $this->home();
     }
@@ -48,7 +48,7 @@ class HomeController extends Controller
      * 
      * @author Miguel A. Guajardo <mguajardoal@gmail.com>
      */
-    public function home()
+    public function home($path = [])
     {
         Logger::LogDebug("Building home page");
         Logger::LogDebug(file_exists($this->viewsFolder . "layouts/layout.php")?"true":"false");
@@ -63,7 +63,7 @@ class HomeController extends Controller
      * 
      * @author Miguel A. Guajardo <mguajardoal@gmail.com>
      */
-    public function about()
+    public function about($path = [])
     {
         Logger::LogDebug("Building about us page");
         Logger::LogDebug(file_exists($this->viewsFolder . "layouts/layout.php")?"true":"false");
@@ -71,5 +71,15 @@ class HomeController extends Controller
         include $this->viewsFolder . "about.php";
         include $this->viewsFolder . "segments/header.php";
         include $this->viewsFolder . "layouts/layout.php";
+    }
+
+    public function css($file = [])
+    {
+        Logger::LogDebug('Acquiring tailwindcss');
+
+        logger::LogDebug('Setting the Content-Type as text/css');
+        header('Content-Type: text/css');
+        
+        include $this->viewsFolder . "../css/$file[0].css";
     }
 }

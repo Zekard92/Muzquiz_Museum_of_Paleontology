@@ -3,6 +3,7 @@ namespace App\Routes;
 
 use App\Controllers\Controller;
 use App\Controllers\HomeController;
+use App\Controllers\ResourcesController;
 use App\Logger\Logger;
 use Exception;
 
@@ -32,7 +33,7 @@ abstract class Route
         self::GetSubdomain($_SERVER['HTTP_HOST']);
         self::ProcessRequestSections($_SERVER['REQUEST_URI']);
         $controller = self::DefineController();
-        self::PerformRequest($controller, '');
+        self::PerformRequest($controller);
     }
     
     /**
@@ -76,7 +77,8 @@ abstract class Route
         $matches=[];
         preg_match($regex, $requestUri, $matches);
 
-        self::$path = explode('/', $matches['path']);
+        Logger::LogDebug(print_r($matches, true));
+        self::$path = array_values(array_filter(explode('/', $matches['path'])));
         self::$query = $matches['query'];
 
         Logger::LogDebug("Path: => " . print_r(self::$path, true));
@@ -138,12 +140,16 @@ abstract class Route
      */
     private static function PerformRequest(Controller $controller)
     {
-        $view = self::$path[1] ? self::$path[1] : 'home';
+        $path = self::$path;
+        $view = self::$path[0] ? self::$path[0] : 'home';
+        unset($path[0]);
+        $path = array_values($path);
+
         Logger::LogDebug("Requesting View: $view");
         if (method_exists($controller, $view))
         {
             Logger::LogDebug("Calling Controller: $view");
-            $controller->$view();
+            $controller->$view($path);
         }
         else
         {
