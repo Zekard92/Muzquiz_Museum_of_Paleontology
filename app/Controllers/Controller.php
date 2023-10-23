@@ -22,5 +22,5 @@ abstract class Controller
      * 
      * @author Miguel A. Guajardo <mguajardoal@gmail.com>
      */
-    public abstract function DefaultView() : void;
+    public abstract function DefaultView($path = []) : void;
 }
