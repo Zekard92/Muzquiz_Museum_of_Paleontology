@@ -27,11 +27,26 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        Logger::Log("Home Controller is being constructed.");
-        Logger::LogDebug("Setting up the views folder.");
-        $this->viewsFolder = __DIR__ . '/../../resources/views/';
-    }
+        Logger::Log('Home Controller is being constructed.');
 
+        $this->controllerName = 'Home';
+        $this->title='Museo de paleontolog&iacute;a de M&uacute;zquiz.';
+
+        Logger::LogDebug('Setting up the views folder.');
+        $this->viewsFolder = __DIR__ . '/../../resources/views/';
+        
+    }
+    
+    protected function render(string $viewPath)
+    {
+        $pageTitle = "$this->controllerName - $this->title";
+
+        include $this->viewsFolder . $viewPath;
+        include $this->viewsFolder . 'segments/header.php';
+        include $this->viewsFolder . 'segments/footer.php';
+        include $this->viewsFolder . 'layouts/layout.php';
+    }
+    
     /**
      * The implementation of an abstract method.
      * 
@@ -40,9 +55,10 @@ class HomeController extends Controller
      */
     public function DefaultView($path = []) : void
     {
+        Logger::LogInfo('Following default View');
         $this->home();
     }
-
+    
     /**
      * Home (Main) landing-page.
      * 
@@ -50,14 +66,13 @@ class HomeController extends Controller
      */
     public function home($path = [])
     {
-        Logger::LogDebug("Building home page");
-        Logger::LogDebug(file_exists($this->viewsFolder . "layouts/layout.php")?"true":"false");
-        $title = 'Home - Museo de paleontolog&iacute;a de M&uacute;zquiz.';
-        include $this->viewsFolder . "home.php";
-        include $this->viewsFolder . "segments/header.php";
-        include $this->viewsFolder . "layouts/layout.php";
-    }
+        Logger::LogDebug('Building home page');
+        Logger::LogDebug(file_exists($this->viewsFolder . 'layouts/layout.php')?'true':'false');
 
+        Logger::LogInfo('Implementing Includes');
+        $this->render('home.php');
+    }
+    
     /**
      * About US landing-page.
      * 
@@ -65,12 +80,11 @@ class HomeController extends Controller
      */
     public function about($path = [])
     {
-        Logger::LogDebug("Building about us page");
-        Logger::LogDebug(file_exists($this->viewsFolder . "layouts/layout.php")?"true":"false");
-        $title = 'About - Museo de paleontolog&iacute;a de M&uacute;zquiz.';
-        include $this->viewsFolder . "about.php";
-        include $this->viewsFolder . "segments/header.php";
-        include $this->viewsFolder . "layouts/layout.php";
+        Logger::LogDebug('Building about us page');
+        Logger::LogDebug(file_exists($this->viewsFolder . 'layouts/layout.php')?'true':'false');
+
+        Logger::LogInfo('Rendering Page.');
+        $this->render('about.php');
     }
 
     public function css($file = [])
