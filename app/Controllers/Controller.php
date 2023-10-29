@@ -14,6 +14,9 @@ namespace App\Controllers;
  */
 abstract class Controller
 {
+    protected $controllerName;
+    protected $pageTitle;
+    protected $title;
     /**
      * Provides the default view to show.
      * 
