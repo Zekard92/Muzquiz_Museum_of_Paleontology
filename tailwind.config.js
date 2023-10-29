@@ -3,7 +3,9 @@ module.exports = {
 	content: ["./resources/**/*.{php,js}"],
 	mode: 'jit',
 	plugins: [],
-	purge:["./resources/**/*.{php,js}"],
+	safelist: [
+		'bg-slate-300',
+	],
 	theme: {
 		extend: {},
 	},
