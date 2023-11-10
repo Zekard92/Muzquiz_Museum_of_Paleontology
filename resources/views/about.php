@@ -1,5 +1,5 @@
 <?php ob_start(); ?>
-<h1 class="text-6xl font-serif">
+<h1 class="text-4xl font-serif">
     Acerca de <?php echo $this->title?>
 </h1>
 <div>

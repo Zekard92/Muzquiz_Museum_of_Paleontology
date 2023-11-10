@@ -15,7 +15,7 @@
             <li class="hover:underline"><a href="https://www.github.com/Zekard92">Github</a></li>
             <li class="hover:underline"><a href="https://www.linkedin.com/in/miguel-guajardo/">Linkedin</a></li>
         </ul>
-        <span class="text-sm text-gray-500">&copy;2023 - Zekard Technologies.</span>
+        <span class="text-sm text-gray-500">&copy;2023 - Miguel A. Guajardo</span>
     </div>
 </footer>
 <?php $this->footer = ob_get_clean(); ?>
