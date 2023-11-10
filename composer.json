@@ -18,6 +18,7 @@
         "monolog/monolog": "^3.4"
     },
 	"scripts": {
-		"build": "npx tailwindcss -i ./resources/css/app.css -o ./resources/css/tailwind.css --watch"
+		"dev": "npx tailwindcss -i ./resources/css/app.css -o ./resources/css/tailwind.css --watch",
+        "build": "npx tailwindcss -i ./resources/css/app.css -o ./resources/css/tailwind.css --minify"
 	}
 }
