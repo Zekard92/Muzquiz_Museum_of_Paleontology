@@ -7,6 +7,23 @@ module.exports = {
 		'bg-slate-300',
 	],
 	theme: {
-		extend: {},
+		extend: {
+			colors: {
+				background: {
+					DEFAULT:'#098094',
+				},
+				primary: {
+					DEFAULT: '#A9A9A9',
+				},
+				secondary: {
+					light: '#D2B48C',
+					DEFAULT: '#CD5C5C',
+				},
+				accent: {
+					DEFAULT: '#FFA500',
+					variant: '#CD5C5C',
+				},
+			},
+		},
 	},
 }
