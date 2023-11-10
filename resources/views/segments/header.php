@@ -1,11 +1,20 @@
 <?php ob_start(); ?>
-<header class="text-center text-white bg-gray-900 py-5">
-    <div class="pb-5">
-        <h1 class="text-6xl font-serif"><?php echo $this->title;?></h1>
+<header class=" text-white">
+    <div class="bg-black py-5 pl-5">
+        <h1 class="text-2xl font-serif"><?php echo $this->title;?></h1>
     </div>
-    <nav class="max-w-screen-xl mx-auto flex flex-wrap items-center justify-between py-2 px-4 bg-slate-700 rounded-lg">
-        <div id="nav-main">
-            <a href="/" class="hover:underline bg-slate-400 text-black p-1 rounded-lg">Home</a>
+    <nav class="max-w-screen-full
+    py-2
+    px-4
+    flex
+    flex-wrap
+    items-center
+    justify-between">
+        <div id="nav-main" class="mx-auto">
+            <a href="/" class=" hover:text-accent-variant text-white p-1 text-xl font-semibold">Home</a>
+            <a href="/" class=" hover:text-accent-variant text-white p-1 text-xl font-semibold">Home</a>
+            <a href="/" class=" hover:text-accent-variant text-white p-1 text-xl font-semibold">Home</a>
+            <a href="/" class=" hover:text-accent-variant text-white p-1 text-xl font-semibold">Home</a>
         </div>
     </nav>
 </header>
