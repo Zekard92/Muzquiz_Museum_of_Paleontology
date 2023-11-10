@@ -30,7 +30,7 @@ class HomeController extends Controller
         Logger::Log('Home Controller is being constructed.');
 
         $this->controllerName = 'Home';
-        $this->title='Museo de paleontolog&iacute;a de M&uacute;zquiz.';
+        $this->title='Paleontología Múzquiz';
 
         Logger::LogDebug('Setting up the views folder.');
         $this->viewsFolder = __DIR__ . '/../../resources/views/';
@@ -81,7 +81,10 @@ class HomeController extends Controller
     public function about($path = [])
     {
         Logger::LogDebug('Building about us page');
-        Logger::LogDebug(file_exists($this->viewsFolder . 'layouts/layout.php')?'true':'false');
+        Logger::LogDebug(
+			'Layout file exists? ' 
+			. file_exists($this->viewsFolder . 'layouts/layout.php')?'true':'false'
+			);
 
         Logger::LogInfo('Rendering Page.');
         $this->render('about.php');
@@ -91,9 +94,14 @@ class HomeController extends Controller
     {
         Logger::LogDebug('Acquiring tailwindcss');
 
-        logger::LogDebug('Setting the Content-Type as text/css');
+        Logger::LogDebug('Setting the Content-Type as text/css');
         header('Content-Type: text/css');
         
         include $this->viewsFolder . "../css/$file[0].css";
     }
+
+	public function favicon()
+	{
+		Logger::LogDebug('Favicon requested');
+	}
 }
