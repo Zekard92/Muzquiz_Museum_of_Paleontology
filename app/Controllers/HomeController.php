@@ -17,7 +17,9 @@ use App\Logger\Logger;
  */
 class HomeController extends Controller
 {
+    private $resourceFolder;
     private $viewsFolder;
+    private $imagesFolder;
 
     /**
      * During construction, sets up the uri of a folder,
@@ -33,8 +35,10 @@ class HomeController extends Controller
         $this->title='Paleontología Múzquiz';
 
         Logger::LogDebug('Setting up the views folder.');
-        $this->viewsFolder = __DIR__ . '/../../resources/views/';
-        
+
+        $this->resourceFolder = __DIR__ . '/../../resources/';
+        $this->viewsFolder = $this->resourceFolder . 'views/';
+        $this->imagesFolder = $this->resourceFolder . 'images/';
     }
     
     protected function render(string $viewPath)
@@ -98,6 +102,26 @@ class HomeController extends Controller
         header('Content-Type: text/css');
         
         include $this->viewsFolder . "../css/$file[0].css";
+    }
+
+    public function images($files = [])
+    {
+        Logger::LogDebug('Acquiring image: ' . $files[0]);
+        $filepath = $this->imagesFolder . $files[0];
+        Logger::LogDebug('Image Path: ' . $filepath);
+
+        $fileName = glob($filepath . '.*')[0];
+
+        Logger::LogDebug("Files: " . print_r($fileName, true));
+
+        if ($fileName != null)
+        {
+            Logger::LogDebug("Image $fileName found");
+            $ext = pathinfo($fileName, PATHINFO_EXTENSION);
+            Logger::LogDebug("Content-Type: image/$ext");
+            header("Content-Type: image/$ext");
+            include $fileName;
+        }
     }
 
 	public function favicon()
