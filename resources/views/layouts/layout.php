@@ -37,11 +37,9 @@
         grow
         bg-slate-300
         mx-20
-        items-center
         rounded-lg
-        px-5
         shadow-xl
-        py-2">
+        py-4">
             <?php echo $this->content; ?>
         </div>
     </main>
