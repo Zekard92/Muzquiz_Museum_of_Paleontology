@@ -11,8 +11,12 @@
         <p>La Cascada</p>
         <p>CP 26340"</p>
         <p>Ciudad M. Múzquiz, Múzquiz, Coahuila</p>
-        <p>Tel: +52 (864) 616-4800</p>
-        <p>Cel: +52 (864) 103-1051</p>
+        <p>
+            <a href="tel:+52864-616-4800">Tel: +52 (864) 616-4800</a>
+        </p>
+        <p> 
+            <a href="tel:+52864-103-1051">Cel: +52 (864) 103-1051</a>
+        </p>
         <p class="text-right pt-10">
             <a href="mailto:info@paleontologiamuzquiz.com" class="uppercase">info@paleontologiamuzquiz.com</a>
         </p>
