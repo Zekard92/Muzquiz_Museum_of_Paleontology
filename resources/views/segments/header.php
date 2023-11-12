@@ -1,7 +1,7 @@
 <?php ob_start(); ?>
-<header class=" text-white">
-    <div class="bg-black py-5 pl-5">
-        <h1 class="text-2xl font-serif"><?php echo $this->title;?></h1>
+<header class="">
+    <div class="bg-black pb-5">
+        <h1 class="rounded-br-full bg-white text-3xl font-serif w-60"><?php echo $this->title;?></h1>
     </div>
     <nav class="max-w-screen-full
     py-2
