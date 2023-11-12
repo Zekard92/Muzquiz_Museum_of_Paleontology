@@ -12,9 +12,7 @@
     justify-between">
         <div id="nav-main" class="mx-auto">
             <a href="/" class=" hover:text-accent-variant text-white p-1 text-xl font-semibold">Home</a>
-            <a href="/" class=" hover:text-accent-variant text-white p-1 text-xl font-semibold">Home</a>
-            <a href="/" class=" hover:text-accent-variant text-white p-1 text-xl font-semibold">Home</a>
-            <a href="/" class=" hover:text-accent-variant text-white p-1 text-xl font-semibold">Home</a>
+            <a href="/About" class=" hover:text-accent-variant text-white p-1 text-xl font-semibold">About</a>
         </div>
     </nav>
 </header>

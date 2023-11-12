@@ -10,8 +10,6 @@
         flex
         flex-row gap-10">
             <li class="hover:underline"><a href="/about">About</a></li>
-            <li class="hover:underline"><a href="https://www.github.com/Zekard92">Github</a></li>
-            <li class="hover:underline"><a href="https://www.linkedin.com/in/miguel-guajardo/">Linkedin</a></li>
         </ul>
         <span class="text-sm text-accent"><a href="mailto:mguajardoal@paleontologiamuzquiz.com">&copy;2023 - Miguel A. Guajardo</a></span>
     </div>

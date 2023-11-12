@@ -36,10 +36,11 @@
         flex-col
         grow
         bg-slate-300
-        mx-20
+        mx-0
         rounded-lg
         shadow-xl
-        py-4">
+        py-4
+         lg:mx-20">
             <?php echo $this->content; ?>
         </div>
     </main>
