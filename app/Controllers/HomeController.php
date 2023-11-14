@@ -17,7 +17,9 @@ use App\Logger\Logger;
  */
 class HomeController extends Controller
 {
+    private $resourceFolder;
     private $viewsFolder;
+    private $imagesFolder;
 
     /**
      * During construction, sets up the uri of a folder,
@@ -30,11 +32,13 @@ class HomeController extends Controller
         Logger::Log('Home Controller is being constructed.');
 
         $this->controllerName = 'Home';
-        $this->title='Museo de paleontolog&iacute;a de M&uacute;zquiz.';
+        $this->title='Paleontología Múzquiz';
 
         Logger::LogDebug('Setting up the views folder.');
-        $this->viewsFolder = __DIR__ . '/../../resources/views/';
-        
+
+        $this->resourceFolder = __DIR__ . '/../../resources/';
+        $this->viewsFolder = $this->resourceFolder . 'views/';
+        $this->imagesFolder = $this->resourceFolder . 'images/';
     }
     
     protected function render(string $viewPath)
@@ -81,7 +85,10 @@ class HomeController extends Controller
     public function about($path = [])
     {
         Logger::LogDebug('Building about us page');
-        Logger::LogDebug(file_exists($this->viewsFolder . 'layouts/layout.php')?'true':'false');
+        Logger::LogDebug(
+			'Layout file exists? ' 
+			. file_exists($this->viewsFolder . 'layouts/layout.php')?'true':'false'
+			);
 
         Logger::LogInfo('Rendering Page.');
         $this->render('about.php');
@@ -91,9 +98,34 @@ class HomeController extends Controller
     {
         Logger::LogDebug('Acquiring tailwindcss');
 
-        logger::LogDebug('Setting the Content-Type as text/css');
+        Logger::LogDebug('Setting the Content-Type as text/css');
         header('Content-Type: text/css');
         
         include $this->viewsFolder . "../css/$file[0].css";
     }
+
+    public function images($files = [])
+    {
+        Logger::LogDebug('Acquiring image: ' . $files[0]);
+        $filepath = $this->imagesFolder . $files[0];
+        Logger::LogDebug('Image Path: ' . $filepath);
+
+        $fileName = glob($filepath . '.*')[0];
+
+        Logger::LogDebug("Files: " . print_r($fileName, true));
+
+        if ($fileName != null)
+        {
+            Logger::LogDebug("Image $fileName found");
+            $ext = pathinfo($fileName, PATHINFO_EXTENSION);
+            Logger::LogDebug("Content-Type: image/$ext");
+            header("Content-Type: image/$ext");
+            include $fileName;
+        }
+    }
+
+	public function favicon()
+	{
+		Logger::LogDebug('Favicon requested');
+	}
 }
